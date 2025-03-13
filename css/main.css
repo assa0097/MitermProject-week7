@@ -44,6 +44,7 @@
 /* -------- End of CSS Reset -------- */
 
 body {
+    font-family: 'lato' ,sans-serif;
     background-color: black;
     color: white;
 }
@@ -54,14 +55,14 @@ body {
     margin: 0 auto; 
 }    
 
-/* -------- Header -------- */
+/* -------- Header (Mobile) -------- */
 
 .header-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   max-width: 500px;
-  height: 100px;
 }
 
 .header-container h1 {
@@ -79,6 +80,7 @@ body {
 .header-container nav ul {
   display: flex;
   flex-direction: row;
+  list-style-type: none;
   width: 100%;
   max-width: 500px;
 }
@@ -95,7 +97,7 @@ body {
   text-decoration: none;
   border-radius: 25px;
   border: none;
-  padding: 6px 8px;
+  padding: 5px 10px;
   background-color: #5476b4;
   transition: background-color 0.4s ease, transform 0.4s ease;
   transform-origin: center center;
@@ -103,4 +105,272 @@ body {
   line-height: 1;
 }
 
+.header-container nav ul li a:hover {
+  background-color: #4abee4;
+  transform: scale(1.1);
+  font: 1rem;
+}
 
+.stripe {
+  position: relative;
+  display: inline-block;
+}
+
+.stripe::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 10px;
+  right: 0;
+  bottom: 15px;
+  background: #155bbe;
+  transform: scaleX(1.1);
+  z-index: -1;
+}
+
+/* -------- The First Section (Mobile) -------- */
+
+.hero {
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+}
+
+.hero img {
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoom 8s infinite ease-in-out alternate;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
+
+.hero .hero-text {
+  position: absolute;
+  width: 70%;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero .hero-text .hueShift {
+  background: linear-gradient(90deg, #1665c5, #6dc2c2);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: textScroll 2s infinite alternate;
+}
+
+@keyframes textScroll {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 0%;
+  }
+}
+
+.hero .hero-text p:nth-child(3) {
+  margin-top: 10px;
+}
+
+/* -------- The Second Section (Mobile) -------- */
+
+.locals {
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+
+.locals h2 {
+  text-align: center;
+}
+
+.planets .sun {
+  grid-area: sun;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.planets .moon {
+  grid-area: moon;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.planets .mercury {
+  grid-area: mercury;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.planets .mars {
+  grid-area: mars;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.planets .venus {
+  grid-area: venus;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.planets .earth {
+  grid-area: earth;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.planets {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  "sun"
+  "mercury"
+  "venus"
+  "earth"
+  "moon"
+  "mars";
+  justify-items: center;
+  gap: 10px;
+}
+
+.planet-button {
+  background-color: #800080;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 20px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+/* -------- Footer (Mobile) -------- */
+
+hr {
+  border: none;
+  height: 1px; 
+  background-color: #262626; 
+}
+
+.footer p {
+  text-align: center;
+}
+
+.footer {
+  padding: 5px 5px;
+  margin-top: 20px;
+}
+
+/* -------- (Tablet Mode) -------- */
+
+@media (min-width: 768px) {
+  .wrapper {
+      max-width: 800px;
+  }
+
+  .header-container {
+      flex-direction: row;
+      justify-content: space-between;
+      height: auto;
+  }
+
+  .header-container h1 {
+      font-size: 1.8rem;
+  }
+
+  .header-container nav ul {
+      justify-content: flex-end;
+  }
+
+  .hero .hero-text {
+      width: 60%;
+      bottom: 40%;
+  }
+
+  .planets {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+          "sun mercury"
+          "venus earth"
+          "moon mars";
+  }
+}
+
+/* -------- (Desktop Mode) -------- */
+
+@media (min-width: 1024px) {
+  .wrapper {
+      max-width: 1200px;
+  }
+
+  .header-container {
+      max-width: 1200px;
+      height: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+  }
+
+  .header-container h1 {
+      font-size: 2rem;
+  }
+
+  .header-container nav ul {
+      display: flex;
+      gap: 15px;
+  }
+
+  .hero {
+      max-width: 1000px;
+      margin: 0 auto;
+  }
+
+  .hero .hero-text {
+      width: 50%;
+      bottom: 45%;
+      font-size: 1.5rem;
+  }
+
+  .planets {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      text-align: center;
+  }
+
+  .planets div {
+      flex: 1 1 30%;
+      max-width: 30%;
+      text-align: center;
+  }
+} 
